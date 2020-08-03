@@ -31,8 +31,9 @@
     <%= form.text_area :bio, :rows => 4 %>
   </div>
 
-  <div class="field">
-    <%= form.file_field :photo %>
+  <div>
+    <%= form.label :image %>
+    <%= form.file_field :image %>
   </div>
 
   <div class="actions">

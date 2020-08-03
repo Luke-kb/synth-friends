@@ -31,7 +31,7 @@
   <% end %>
 </p>
 
-<%= image_tag(@post.photo, width: 200) if @post.photo.attached? %>
+<%= image_tag(@profile.image, width: 200) if @profile.image.attached? %>
 
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
 <%= link_to 'Back', profiles_path %>
