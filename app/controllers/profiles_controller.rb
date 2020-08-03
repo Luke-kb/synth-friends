@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_action :show_profile, only: [:show]
+  before_action :set_profile, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
 
 
@@ -11,7 +12,8 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1
   # GET /profiles/1.json
-  def show
+  def show 
+    
   end
 
   # GET /profiles/new
@@ -72,5 +74,13 @@ class ProfilesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def profile_params
       params.require(:profile).permit(:first_name, :last_name, :location, :user_id)
+    end
+
+    def show_profile
+      if !current_user.profile
+        redirect_to new_profile_path
+      else
+        @profile = Profile.find(params[:id])
+      end
     end
 end
