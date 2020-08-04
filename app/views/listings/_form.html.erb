@@ -12,22 +12,32 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :category %>
+    <%= collection_select(:listing, :category, Category.all, :id, :name, prompt: true ) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :brand %>
+    <%= collection_select(:listing, :brand, Brand.all, :id, :name, prompt: true ) %>
+  </div>
+
+  <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
 
   <div class="field">
-    <%= form.label :short_description %>
+    <%= form.label :short_description %><br>
     <%= form.text_field :short_description %>
   </div>
 
   <div class="field">
-    <%= form.label :long_description %>
+    <%= form.label :long_description %><br>
     <%= form.text_area :long_description %>
   </div>
 
   <div class="field">
-    <%= form.label :price %>
+    <%= form.label :price, "Price per day: $" %>
     <%= form.text_field :price, min: 0 %>
   </div>
 
@@ -36,25 +46,15 @@
     <%= form.number_field :year_of_manufacture, min: 1900, max: DateTime.now.strftime('%Y').to_i %>
   </div>
 
-  <div class="field">
-    <%= form.label :start_date %>
-    <%= form.datetime_select :start_date %>
-  </div>
+  <%# <div class="field"> %>
+    <%# <%= form.label :start_date %>
+    <%# <%= form.datetime_select :start_date %>
+  <%# </div> %>
 
-  <div class="field">
-    <%= form.label :end_date %>
-    <%= form.datetime_select :end_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :category_id %>
-    <%= form.text_field :category_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :brand_id %>
-    <%= form.text_field :brand_id %>
-  </div>
+  <%# <div class="field"> %>
+    <%# <%= form.label :end_date %>
+    <%# <%= form.datetime_select :end_date %>
+  <%# </div> %>
 
   <div>
     <%= form.label :image %>
@@ -64,4 +64,5 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+
 <% end %>
