@@ -10,6 +10,8 @@
   <%= @listing.short_description %>
 </p>
 
+<%= image_tag(@listing.image, width: 200) if @profile.listing.attached? %>
+
 <p>
   <strong>Long description:</strong>
   <%= @listing.long_description %>
