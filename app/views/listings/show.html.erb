@@ -38,13 +38,13 @@
 </p>
 
 <p> 
-  <% <strong>Category:</strong> %>
-  <%# <%= @listing.category_id  %> %>
+  <strong>Category:</strong> 
+  <%= @listing.category  %>
 </p>
 
 <p>
   <strong>Brand:</strong>
-  <%# <%= @listing.brand_id %> %>
+  <%= @listing.brand %>
 </p>
 
 <%= link_to 'Edit', edit_listing_path(@listing) %> |

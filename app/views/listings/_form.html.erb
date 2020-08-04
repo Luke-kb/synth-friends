@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :category %>
-    <%= collection_select(:listing, :category, Category.all, :id, :name, prompt: true ) %>
+    <%= collection_select(:category_id, Category.all, :id, :name ) %>
   </div>
 
   <div class="field">
     <%= form.label :brand %>
-    <%= collection_select(:listing, :brand, Brand.all, :id, :name, prompt: true ) %>
+    <%= collection_select(:brand_id, Brand.all, :id, :name ) %>
   </div>
 
   <div class="field">
