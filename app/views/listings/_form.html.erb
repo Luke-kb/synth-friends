@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= form.label :year_of_manufacture %>
-    <%= form.number_field :year_of_manufacture %>
+    <%= form.number_field :year_of_manufacture, min: 1900, max: DateTime.now.strftime('%Y').to_i %>
   </div>
 
   <div class="field">
