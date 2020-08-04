@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_04_020928) do
+ActiveRecord::Schema.define(version: 2020_08_04_043816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,14 +56,12 @@ ActiveRecord::Schema.define(version: 2020_08_04_020928) do
     t.integer "year_of_manufacture"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.bigint "category_id", null: false
-    t.bigint "brand_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "lender_id"
     t.integer "renter_id"
-    t.index ["brand_id"], name: "index_listings_on_brand_id"
-    t.index ["category_id"], name: "index_listings_on_category_id"
+    t.bigint "profile_id"
+    t.index ["profile_id"], name: "index_listings_on_profile_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -99,8 +97,7 @@ ActiveRecord::Schema.define(version: 2020_08_04_020928) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "listings", "brands"
-  add_foreign_key "listings", "categories"
+  add_foreign_key "listings", "profiles"
   add_foreign_key "profiles", "users"
   add_foreign_key "ratings", "profiles"
 end

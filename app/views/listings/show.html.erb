@@ -10,7 +10,7 @@
   <%= @listing.short_description %>
 </p>
 
-<%= image_tag(@listing.image, width: 200) if @profile.listing.attached? %>
+<%= image_tag(@listing.image, width: 200) if @listing.image.attached? %>
 
 <p>
   <strong>Long description:</strong>
@@ -37,14 +37,14 @@
   <%= @listing.end_date %>
 </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @listing.category_id %>
+<p> 
+  <% <strong>Category:</strong> %>
+  <%# <%= @listing.category_id  %> %>
 </p>
 
 <p>
   <strong>Brand:</strong>
-  <%= @listing.brand_id %>
+  <%# <%= @listing.brand_id %> %>
 </p>
 
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
