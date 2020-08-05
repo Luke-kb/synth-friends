@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :loans
   resources :categories
   resources :brands
   resources :listings
