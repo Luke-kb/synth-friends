@@ -26,7 +26,6 @@ class ListingsController < ApplicationController
   def create
     @listing = Listing.new(listing_params)
     @listing.lender_id = current_user.profile.id
-    
 
     respond_to do |format|
       if @listing.save
