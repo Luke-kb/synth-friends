@@ -27,7 +27,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :description %><br>
+    <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
 
@@ -39,6 +39,16 @@
   <div class="field">
     <%= form.label :year_of_manufacture %>
     <%= form.number_field :year_of_manufacture, min: 1900, max: DateTime.now.strftime('%Y').to_i %>
+  </div>
+
+  <%# radio button %>
+
+  <div>
+  <%= form.label "Is the item currently available?" %><br>
+  <%= form.label :availability, "Yes", value: true %>
+  <%= form.radio_button :availability, true, :checked => true, :value => true %>
+  <%= form.label :availability, "No", value: false %>
+  <%= form.radio_button :availability, false, :value => false %>
   </div>
 
   <div>

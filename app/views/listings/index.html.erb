@@ -5,15 +5,13 @@
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Short description</th>
-      <th>Long description</th>
-      <th>Price</th>
-      <th>Year of manufacture</th>
-      <th>Start date</th>
-      <th>End date</th>
       <th>Category</th>
       <th>Brand</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Year of manufacture</th>
+      <th>Availability</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,12 +19,13 @@
   <tbody>
     <% @listings.each do |listing| %>
       <tr>
+        <td><%= Category.find(listing.category_id).name %></td> 
+        <td><%= Brand.find(listing.brand_id).name %></td>  
         <td><%= listing.title %></td>
         <td><%= listing.description %></td>
-        <td><%= listing.price %></td>
+        <td><%= number_to_currency(listing.price) %></td>
         <td><%= listing.year_of_manufacture %></td>
-        <td><%= listing.category_id %></td> 
-        <td><%= listing.brand_id %></td> 
+        <td><%= listing.availability %></td>
         <td><%= link_to 'Show', listing %></td>
         <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
         <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>

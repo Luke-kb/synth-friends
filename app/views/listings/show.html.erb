@@ -3,9 +3,20 @@
 <%= image_tag(@listing.image, width: 250) if @listing.image.attached? %>
 
 <p>
+  <strong>Brand:</strong>
+  <%= Brand.find(@listing.brand_id).name %>
+</p>
+
+<p>
   <strong>Title:</strong>
   <%= @listing.title %>
 </p>
+
+<p> 
+  <strong>Category:</strong> 
+  <%= Category.find(@listing.category_id).name  %>
+</p>
+
 
 <p>
   <strong>Description:</strong>
@@ -14,7 +25,7 @@
 
 <p>
   <strong>Price:</strong>
-  <%= @listing.price %>
+  <%= number_to_currency(@listing.price) %>
 </p>
 
 <p>
@@ -22,15 +33,16 @@
   <%= @listing.year_of_manufacture %>
 </p>
 
-<p> 
-  <strong>Category:</strong> 
-  <%= Category.find(@listing.category_id).name  %>
+<p>
+  <strong>Available to rent?</strong>
+  <% if @listing.availability %>
+    <%= render plain: "Yes" %>
+  <% else %>
+    <%= render plain: "No" %>
+  <% end %>
 </p>
 
-<p>
-  <strong>Brand:</strong>
-  <%= Brand.find(@listing.brand_id).name %>
-</p>
+
 
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <%= link_to 'Back', listings_path %>
