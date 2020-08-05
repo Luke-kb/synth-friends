@@ -1,20 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+<%= image_tag(@listing.image, width: 250) if @listing.image.attached? %>
+
 <p>
   <strong>Title:</strong>
   <%= @listing.title %>
 </p>
 
 <p>
-  <strong>Short description:</strong>
-  <%= @listing.short_description %>
-</p>
-
-<%= image_tag(@listing.image, width: 200) if @listing.image.attached? %>
-
-<p>
-  <strong>Long description:</strong>
-  <%= @listing.long_description %>
+  <strong>Description:</strong>
+  <%= @listing.description %>
 </p>
 
 <p>
@@ -25,16 +20,6 @@
 <p>
   <strong>Year of manufacture:</strong>
   <%= @listing.year_of_manufacture %>
-</p>
-
-<p>
-  <strong>Start date:</strong>
-  <%= @listing.start_date %>
-</p>
-
-<p>
-  <strong>End date:</strong>
-  <%= @listing.end_date %>
 </p>
 
 <p> 

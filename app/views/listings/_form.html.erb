@@ -27,13 +27,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :short_description %><br>
-    <%= form.text_field :short_description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :long_description %><br>
-    <%= form.text_area :long_description %>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
   </div>
 
   <div class="field">
@@ -45,16 +40,6 @@
     <%= form.label :year_of_manufacture %>
     <%= form.number_field :year_of_manufacture, min: 1900, max: DateTime.now.strftime('%Y').to_i %>
   </div>
-
-  <%# <div class="field"> %>
-    <%# <%= form.label :start_date %>
-    <%# <%= form.datetime_select :start_date %>
-  <%# </div> %>
-
-  <%# <div class="field"> %>
-    <%# <%= form.label :end_date %>
-    <%# <%= form.datetime_select :end_date %>
-  <%# </div> %>
 
   <div>
     <%= form.label :image %>
