@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   devise_for :users
   resources :profiles
   resources :users, only: [:show]
+  get 'search', to: "listings#search"
 end
