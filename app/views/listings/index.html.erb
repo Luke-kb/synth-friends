@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th></th>
       <th>Category</th>
       <th>Brand</th>
       <th>Title</th>
@@ -19,6 +20,7 @@
   <tbody>
     <% @listings.each do |listing| %>
       <tr>
+        <td><%= image_tag(listing.image, width: 200) if listing.image.attached? %></td>
         <td><%= Category.find(listing.category_id).name %></td> 
         <td><%= Brand.find(listing.brand_id).name %></td>  
         <td><%= listing.title %></td>
@@ -40,4 +42,4 @@
 
 <br>
 
-<%# <%= link_to 'New Listing', new_listing_path %> 
+<%# <%= link_to 'New Listing', new_listing_path  %>
