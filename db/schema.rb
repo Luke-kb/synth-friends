@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_04_234119) do
+ActiveRecord::Schema.define(version: 2020_08_05_011322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,8 +54,6 @@ ActiveRecord::Schema.define(version: 2020_08_04_234119) do
     t.text "long_description"
     t.decimal "price"
     t.integer "year_of_manufacture"
-    t.datetime "start_date"
-    t.datetime "end_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "lender_id"
@@ -67,6 +65,16 @@ ActiveRecord::Schema.define(version: 2020_08_04_234119) do
     t.index ["brand_id"], name: "index_listings_on_brand_id"
     t.index ["category_id"], name: "index_listings_on_category_id"
     t.index ["profile_id"], name: "index_listings_on_profile_id"
+  end
+
+  create_table "loans", force: :cascade do |t|
+    t.bigint "listing_id", null: false
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.decimal "total_cost"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["listing_id"], name: "index_loans_on_listing_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -105,6 +113,7 @@ ActiveRecord::Schema.define(version: 2020_08_04_234119) do
   add_foreign_key "listings", "brands"
   add_foreign_key "listings", "categories"
   add_foreign_key "listings", "profiles"
+  add_foreign_key "loans", "listings"
   add_foreign_key "profiles", "users"
   add_foreign_key "ratings", "profiles"
 end
