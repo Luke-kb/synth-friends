@@ -25,7 +25,11 @@
         <td><%= listing.description %></td>
         <td><%= number_to_currency(listing.price) %></td>
         <td><%= listing.year_of_manufacture %></td>
-        <td><%= listing.availability %></td>
+        <% if listing.availability %>
+        <td><%= render plain: "Yes" %></td>
+        <% else %>
+        <td><%= render plain: "No" %></td>
+        <% end %>
         <td><%= link_to 'Show', listing %></td>
         <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
         <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
