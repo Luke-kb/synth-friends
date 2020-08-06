@@ -13,12 +13,12 @@ s3 = Aws::S3::Resource.new(region: 'ap-southeast-2')
 
 
 # Listing.destroy_all
-Profile.destroy_all
-User.destroy_all
-Loan.destroy_all
-Rating.destroy_all
-Category.destroy_all
-Brand.destroy_all
+# Profile.destroy_all
+# User.destroy_all
+# Loan.destroy_all
+# Rating.destroy_all
+# Category.destroy_all
+# Brand.destroy_all
 
 # 20.times do |i|
 #     item = Item.create!(

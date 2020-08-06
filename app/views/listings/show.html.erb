@@ -2,6 +2,7 @@
 
 <%= image_tag(@listing.image, width: 250) if @listing.image.attached? %>
 
+
 <p>
   <strong>Brand:</strong>
   <%= Brand.find(@listing.brand_id).name %>
@@ -42,6 +43,7 @@
   <% end %>
 </p>
 
+<p><i>listed <%= time_ago_in_words(@listing.created_at) %> ago by <%= Profile.find(@listing.lender_id).first_name %> </i></p>
 
 
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
