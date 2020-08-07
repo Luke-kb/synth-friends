@@ -37,7 +37,7 @@ end
 
 user1 = User.create! :email => 'user1@test.com', :password => 'password', :password_confirmation => 'password'
 user2 = User.create! :email => 'user2@test.com', :password => 'password', :password_confirmation => 'password'
-admin = User.create! :email => 'admin@test.com', :password => 'admin', :password_confirmation => 'admin', :admin => true
+admin = User.create! :email => 'admin@test.com', :password => 'adminpassword', :password_confirmation => 'adminpassword', :admin => true
 
 puts "finish loading data"
 
