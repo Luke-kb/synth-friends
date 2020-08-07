@@ -35,9 +35,13 @@ categories_array.each do |category|
     Category.create!(name: category)
 end
 
-user1 = User.create! :email => 'user1@test.com', :password => 'password', :password_confirmation => 'password'
-user2 = User.create! :email => 'user2@test.com', :password => 'password', :password_confirmation => 'password'
+user1 = User.create! :email => 'bob@test.com', :password => 'password', :password_confirmation => 'password', :admin => false
+user2 = User.create! :email => 'flik@test.com', :password => 'password', :password_confirmation => 'password', :admin => false
 admin = User.create! :email => 'admin@test.com', :password => 'adminpassword', :password_confirmation => 'adminpassword', :admin => true
+listing1 = Listing.create! :brand => 1, :title => 'MatrixBrute', :category => 1, :description => "analog monosynth", :price => 30, :year_of_manufacture => 2012, :availabity => true, lender_id => user1.id, renter_id => user2.id
+listing2 = Listing.create! :brand => 2, :title => 'MiniMoog Voyager XL', :category => 1, :description => "famed analog monosynth", :price => 40, :year_of_manufacture => 2010, :availabity => true
+loan1 = Loan.create! = :listing_id => listing1.id, :start_date => DateTime.strptime("08/07/2020 17:00", "%m/%d/%Y %H:%M"), :end_date => DateTime.strptime("08/09/2020 17:00", "%m/%d/%Y %H:%M"), :total_cost => (listing1.price*2)
+
 
 puts "finish loading data"
 
