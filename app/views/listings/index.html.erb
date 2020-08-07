@@ -32,13 +32,11 @@
         <% else %>
         <td><%= render plain: "No" %></td>
         <% end %>
-        <% if can? :read, @listing %>
           <td><%= link_to 'Show', listing %></td>
-        <% end %>
         <%if can? :update, @listing %>
           <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
         <% end %>
-        <% if can? :manage, @listing %>
+        <% if current_user&.admin? %>
           <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>

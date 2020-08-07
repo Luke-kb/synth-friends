@@ -18,10 +18,9 @@
     <% end %>
 
     <%= render 'shared/navbar' %>
-    
-    <%# <% if user_signed_in? %> 
-    <%# <p>Welcome, <%= current_user.profile.first_name</p>  %>
-    <%# <% end %> 
+    <% if user_signed_in? %> 
+      <p>Logged in as: <strong><%= "#{current_user.email}"%></strong></p>
+    <% end %>
     
     <div class="container">
       <%= yield %>
