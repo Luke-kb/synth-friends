@@ -29,15 +29,27 @@
           <li class="nav-item">
             <%= link_to "+ Add a listing", new_listing_path(current_user.id), class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "My Listings", listing_path(current_user.id), class: "nav-link" %>
-          </li>
+          <% if !current_user.admin? %>
+            <li class="nav-item">
+              <%= link_to "My Listings", listing_path(current_user.id), class: "nav-link" %>
+            </li>
           <li class="nav-item">
             <%= link_to "My Loans", loan_path(current_user.id), class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "My Profile", profile_path(current_user.id), class: "nav-link" %>
           </li>
+            <% else %>
+            <li class="nav-item">
+              <%= link_to "All Listings", listings_path, class: "nav-link" %>
+            </li>
+          <li class="nav-item">
+            <%= link_to "All Loans", loan_path(current_user.id), class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "View Admin Profile", profile_path(current_user.id), class: "nav-link" %>
+          </li>
+          <% end %>
         </ul>
           <ul class="navbar-nav">
             <%= link_to "Logout", destroy_user_session_path, method:"DELETE", class:"nav-link active" %>

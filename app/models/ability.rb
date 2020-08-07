@@ -4,17 +4,19 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    #for a user not currently logged in
-    user ||= User.new
+    #for guest user
+    # user ||= User.new
     can :read, Listing, availability: true
-    #for logged in user
+    can :read, Profile
 
+    # for admin
     if user.admin?
       can :manage, :all
-
+      
+      #for logged in user
       if user.present?
-        can :manage, Listing, lender_id: user.profile.id
-        can :manage, Profile, profile_id: user.id
+        can :update, Listing, lender_id: user.profile.id
+        can :update, Profile, user_id: user.id
       end
     end
   end
