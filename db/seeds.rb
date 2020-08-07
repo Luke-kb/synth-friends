@@ -9,20 +9,44 @@
 require 'faker'
 require 'aws-sdk-s3'
 
-s3 = Aws::S3::Resource.new(region: 'ap-southeast-2')
-
-
-# Listing.destroy_all
-# Profile.destroy_all
 # User.destroy_all
-# Loan.destroy_all
-# Rating.destroy_all
 # Category.destroy_all
 # Brand.destroy_all
+# Listing.destroy_all
+# Profile.destroy_all
+# Loan.destroy_all
+# Rating.destroy_all
+
+puts "start loading data"
+
+brands_array = [
+    "Arturia", "Moog", "Korg", "Elektron", "Dave Smith Instruments", "Yamaha", "Access", "Waldorf"
+]
+
+categories_array = [
+    "Keyboard Synth", "Desktop Synth", "Effects", "Midi", "Modular", "Accessories"
+]
+
+brands_array.each do |brand|
+    Brand.create!(name: brand)
+end
+
+categories_array.each do |category|
+    Category.create!(name: category)
+end
+
+user1 = User.create! :email => 'user1@test.com', :password => 'password', :password_confirmation => 'password'
+user2 = User.create! :email => 'user2@test.com', :password => 'password', :password_confirmation => 'password'
+
+puts "finish loading data"
+
+# s3 = Aws::S3::Resource.new(region: 'ap-southeast-2')
+
+
 
 # 20.times do |i|
 #     item = Item.create!(
-#                     title: Faker::Games::Pokemon.name,
+    #                     title: Faker::Games::Pokemon.name,
 #                     description: Faker::Lorem.paragraph_by_chars(60, false),
 #                     price: 5.0)
 
@@ -35,18 +59,3 @@ s3 = Aws::S3::Resource.new(region: 'ap-southeast-2')
     # item.image.attach(io: File.open("app/assets/images/chatons/#{i}.jpg"), filename: "#{i}.jpg")
 
 
-brands_array = [
-    "Arturia", "Moog", "Korg", "Elektron", "Dave Smith Instruments", "Yamaha", "Access", "Waldorf"
-]
-
-categories_array = [
-    "Keyboard Synth", "Desktop Synth", "Effects", "Midi Controller", "Modular", "Accessories"
-]
-
-brands_array.each do |brand|
-    Brand.create(name: brand)
-end
-
-categories_array.each do |category|
-    Category.create(name: category)
-end

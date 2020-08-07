@@ -1,3 +1,3 @@
 class Category < ApplicationRecord
-    belongs_to :listing
+    has_many :listings
 end
