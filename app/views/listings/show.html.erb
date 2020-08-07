@@ -45,6 +45,10 @@
 
 <p><i>listed <%= time_ago_in_words(@listing.created_at) %> ago by <%= Profile.find(@listing.lender_id).first_name %> </i></p>
 
-
-<%= link_to 'Edit', edit_listing_path(@listing) %> |
-<%= link_to 'Back', listings_path %>
+<% if can? :manage, @listing %>
+  <%= link_to 'Edit Listing', edit_listing_path(@listing) %> 
+<% end %>
+<% if current_user.admin? %>
+|  <%= link_to 'Delete Listing', @listing, method: :delete, data: { confirm: 'Are you sure?' } %> 
+| <%= link_to 'Back', listings_path %>
+<% end %>

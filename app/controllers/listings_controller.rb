@@ -8,7 +8,6 @@ class ListingsController < ApplicationController
   end
 
   def search
-    @listings = Listing.where("brand LIKE ?", "%" + params[:q] + "%")
   end
 
   # GET /listings/1

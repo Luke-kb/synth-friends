@@ -32,6 +32,10 @@
 </p>
 
 <%= image_tag(@profile.image, width: 200) if @profile.image.attached? %><br>
-
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+<%# authorisation %>
+<% if can? :manage, @profile %>
+<%= link_to 'Edit', edit_profile_path(@profile) %> 
+<% end %>
+<% if current_user.admin? %>
+| <%= link_to 'Back', profiles_path %>
+<% end %>
