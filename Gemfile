@@ -33,7 +33,6 @@ gem 'devise'
 gem 'bootstrap', '~> 4.5.0'
 gem 'jquery-rails'
 gem 'aws-sdk-s3'
-gem 'pry'
 gem 'cancancan'
 gem 'rails_12factor', group: :production
 gem 'faker'
