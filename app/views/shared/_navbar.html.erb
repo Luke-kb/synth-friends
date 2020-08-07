@@ -30,6 +30,9 @@
             <%= link_to "Add a listing", new_listing_path(current_user.id), class: "nav-link" %>
           </li>
           <li class="nav-item">
+            <%= link_to "My Listings", listing_path(current_user.id), class: "nav-link" %>
+          </li>
+          <li class="nav-item">
             <%= link_to "My Profile", profile_path(current_user.id), class: "nav-link" %>
           </li>
         </ul>
