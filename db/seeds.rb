@@ -105,7 +105,8 @@ user2.create_listing!(
     description: "famed analog monosynth", 
     price: 40, 
     year_of_manufacture: 2010, 
-    availabity: true)
+    availabity: true
+)
 
 # loan1 = Loan.create!(listing_id: listing1.id, 
 #                     start_date: DateTime.strptime("08/07/2020 17:00", "%m/%d/%Y %H:%M"), 
