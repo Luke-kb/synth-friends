@@ -8,8 +8,8 @@ class CreateListings < ActiveRecord::Migration[6.0]
       t.integer :year_of_manufacture
       t.datetime :start_date
       t.datetime :end_date
-      t.references :category, null: false, foreign_key: true
-      t.references :brand, null: false, foreign_key: true
+      t.references :category, foreign_key: true
+      t.references :brand, foreign_key: true
 
       t.timestamps
     end
