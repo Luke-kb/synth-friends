@@ -13,7 +13,7 @@ class Ability
       can :manage, :all
       
       if user.present?
-        can [:read, :update], Listing, lender_id: user.profile.id
+        can [:read, :update], Listing, lender_id: user.id
         can [:read, :update], Profile, id: user.id
       end
     end
