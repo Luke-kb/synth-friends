@@ -6,15 +6,14 @@ class Ability
   def initialize(user)
     #for guest user
     user ||= User.new
+    can :read, :all
     # for admin
     if user.admin?
       can :manage, :all
-      
-    else
-      # can :read, Profile
-      # can :read, Listing
-      can [:read, :update], Listing, lender_id: user.id
+    elsif user.present?
+      can [:read,:update], Listing, lender_id: user.id
       can [:read, :update], Profile, id: user.id
+    else
     end
   end
 end

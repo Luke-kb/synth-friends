@@ -47,7 +47,7 @@
 
 <% if can? :update, @listing %>
   <%= link_to 'Edit Listing', edit_listing_path(@listing) %> 
-| <%= link_to 'Back to Listings', listings_path %>
+| <%= link_to 'View all Listings', listings_path %>
 <% end %>
 <% if current_user.admin? %>
 |  <%= link_to 'Delete Listing', @listing, method: :delete, data: { confirm: 'Are you sure?' } %> 
