@@ -61,10 +61,11 @@ user2 = User.create!(
     admin: false
 )
 
-admin = User.create!(email: 'admin@test.com', 
-                    password: 'adminpassword', 
-                    password_confirmation: 'adminpassword', 
-                    admin: true
+admin = User.create!(
+    email: 'admin@test.com', 
+    password: 'adminpassword', 
+    password_confirmation: 'adminpassword', 
+    admin: true
 )
 
 user1.create_profile!(
