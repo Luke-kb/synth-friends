@@ -19,28 +19,98 @@ require 'aws-sdk-s3'
 
 puts "start loading data"
 
-brands_array = [
-    "Arturia", "Moog", "Korg", "Elektron", "Dave Smith Instruments", "Yamaha", "Access", "Waldorf"
+@brands = [
+    'Arturia', 
+    'Moog', 
+    'Korg', 
+    'Elektron', 
+    'Dave Smith Instruments', 
+    'Yamaha', 
+    'Access', 
+    'Waldorf'
 ]
 
-categories_array = [
-    "Keyboard Synth", "Desktop Synth", "Effects", "Midi", "Modular", "Accessories"
+@categories = [
+    'Keyboard Synth', 
+    'Desktop Synth', 
+    'Effects', 
+    'Midi', 
+    'Modular', 
+    'Accessories'
 ]
 
-brands_array.each do |brand|
+@brands.each do |brand|
     Brand.create!(name: brand)
 end
 
-categories_array.each do |category|
+@categories.each do |category|
     Category.create!(name: category)
 end
 
-user1 = User.create! :email => 'bob@test.com', :password => 'password', :password_confirmation => 'password', :admin => false
-user2 = User.create! :email => 'flik@test.com', :password => 'password', :password_confirmation => 'password', :admin => false
-admin = User.create! :email => 'admin@test.com', :password => 'adminpassword', :password_confirmation => 'adminpassword', :admin => true
-listing1 = Listing.create! :brand => 1, :title => 'MatrixBrute', :category => 1, :description => "analog monosynth", :price => 30, :year_of_manufacture => 2012, :availabity => true, lender_id => user1.id, renter_id => user2.id
-listing2 = Listing.create! :brand => 2, :title => 'MiniMoog Voyager XL', :category => 1, :description => "famed analog monosynth", :price => 40, :year_of_manufacture => 2010, :availabity => true
-loan1 = Loan.create! = :listing_id => listing1.id, :start_date => DateTime.strptime("08/07/2020 17:00", "%m/%d/%Y %H:%M"), :end_date => DateTime.strptime("08/09/2020 17:00", "%m/%d/%Y %H:%M"), :total_cost => (listing1.price*2)
+user1 = User.create!(
+    email: 'bob@test.com', 
+    password: 'password', 
+    password_confirmation: 'password', 
+    admin: false
+)
+
+user2 = User.create!(
+    email: 'jane@test.com', 
+    password: 'password', 
+    password_confirmation: 'password', 
+    admin: false
+)
+
+admin = User.create!(email: 'admin@test.com', 
+                    password: 'adminpassword', 
+                    password_confirmation: 'adminpassword', 
+                    admin: true
+)
+
+user1.create_profile!(
+    first_name: "Bob",
+    last_name: Faker::Name.last_name,
+    location: '2120',
+    # rating: rand(1..5),
+)
+                            
+user2.create_profile!(
+    first_name: "Jane",
+    last_name: Faker::Name.last_name,
+    location: '4200',
+    # rating: rand(1..5),
+) 
+                            
+admin.create_profile!(
+    first_name: "Admin", 
+    last_name: "Admin",
+    location: '2000',
+    # rating: rand(1..5),
+)
+
+user1.create_listing!(
+    brand: @brands[0], 
+    title: 'MatrixBrute', 
+    category: 1, 
+    description: "analog monosynth with digital control", 
+    price: 30, 
+    year_of_manufacture: 2016, 
+    availabity: true
+)
+
+user2.create_listing!(
+    brand: @brands[1],
+    title: 'MiniMoog Voyager XL', 
+    category: [0], 
+    description: "famed analog monosynth", 
+    price: 40, 
+    year_of_manufacture: 2010, 
+    availabity: true)
+
+# loan1 = Loan.create!(listing_id: listing1.id, 
+#                     start_date: DateTime.strptime("08/07/2020 17:00", "%m/%d/%Y %H:%M"), 
+#                     end_date: DateTime.strptime("08/09/2020 17:00", "%m/%d/%Y %H:%M"), 
+#                     total_cost: (listing1.price*2))
 
 
 puts "finish loading data"
