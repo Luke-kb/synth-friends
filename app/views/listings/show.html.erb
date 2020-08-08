@@ -2,6 +2,8 @@
 
 <%= image_tag(@listing.image, width: 250) if @listing.image.attached? %>
 
+<p><i>listed <%= time_ago_in_words(@listing.created_at) %> ago by <%= link_to "#{Profile.find(@listing.lender_id).first_name}", profile_path(@listing.lender_id) %></i></p>
+
 
 <p>
   <strong>Brand:</strong>
@@ -25,7 +27,7 @@
 </p>
 
 <p>
-  <strong>Price:</strong>
+  <strong>Price per day:</strong>
   <%= number_to_currency(@listing.price) %>
 </p>
 
@@ -43,8 +45,8 @@
   <% end %>
 </p>
 
-<p><i>listed <%= time_ago_in_words(@listing.created_at) %> ago by <%= link_to "#{Profile.find(@listing.lender_id).first_name}", profile_path(@listing.lender_id) %></i></p>
+<a href="<% new_loan_path %>%" class="btn btn-primary btn" role="button">Request to Loan</a><br>
 
 <% if can? :update, @listing %><%= link_to 'Edit Listing', edit_listing_path(@listing)%> | <% end %> 
 <% if can? :read, @listing %><%= link_to 'View all Listings', listings_path %><% end %>
-<% if current_user&.admin? %>|<%= link_to 'Delete Listing', @listing, method: :delete, data: { confirm: 'Are you sure?' } %><% end %>
+<% if current_user&.admin? %> | <%= link_to 'Delete Listing', @listing, method: :delete, data: { confirm: 'Are you sure?' } %><% end %>
