@@ -34,10 +34,10 @@
         <% end %>
           <td><%= link_to 'Show', listing %></td>
         <%if can? :update, listing %>
-          <td>| <%= link_to 'Edit', edit_listing_path(listing) %></td>
+          <td>|<%= link_to 'Edit', edit_listing_path(listing)%></td>
         <% end %>
         <% if current_user&.admin? %>
-          <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td>|<%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
     <% end %>

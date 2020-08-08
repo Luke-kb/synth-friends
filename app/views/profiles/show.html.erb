@@ -34,7 +34,7 @@
 <% if can? :update, @profile %>
   <%= link_to 'Edit', edit_profile_path(@profile) %> 
 <% end %> 
-<% if current_user.admin? %> |
-  <%= link_to 'Back', profiles_path %> |
+<% if current_user&.admin? %> |
+  <%= link_to 'View all Profiles', profiles_path %> |
   <%= link_to 'Delete Profile', @profile, method: :delete, data: { confirm: 'Are you sure?' } %> 
   <% end %>
