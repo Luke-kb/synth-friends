@@ -1,9 +1,27 @@
 @import "bootstrap";
 
+
+#notice_wrapper {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    z-index: 999;
+    background: rgba(135,200,300,0.85);
+    .alert, .notice {
+        padding: 0.5rem;
+        text-align: center;
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 700;
+        color: white;
+    }
+}
+
 footer p {
     margin-bottom: auto;
 }
 
 #main {
     margin-bottom: 8em;
+    height: 100vh;
 }

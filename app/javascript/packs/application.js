@@ -8,6 +8,14 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
+$(document).ready(function() {
+    setTimeout(() => {
+      $('#notice_wrapper').fadeOut("slow", function() {
+        $(this).remove();
+      })
+    }, 2500);
+  });
+
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
