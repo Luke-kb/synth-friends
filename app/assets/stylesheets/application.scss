@@ -1,6 +1,5 @@
 @import "bootstrap";
 
-
 #notice_wrapper {
     position: absolute;
     top: 0;
@@ -19,6 +18,13 @@
 
 footer p {
     margin-bottom: auto;
+}
+
+p#current_user {
+    text-align: right;
+    padding: 0.5rem;
+    padding-right: 1rem;
+    color: gray;
 }
 
 #main {

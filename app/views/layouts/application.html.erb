@@ -18,12 +18,13 @@
     <% elsif alert %>
     <div id="notice_wrapper">
       <p class="alert"><%= alert %></p>
-  </div>
+    </div>
     <% end %>
 
     <%= render 'shared/navbar' %>
-    <% if user_signed_in? %> 
-      <p>Logged in as: <strong><%= "#{current_user.email}"%></strong></p>
+    
+    <% if user_signed_in? %>
+        <p id="current_user">Logged in as <strong><%= "#{current_user.email}"%></strong></p>
     <% end %>
     
     <div class="container" id="main">
