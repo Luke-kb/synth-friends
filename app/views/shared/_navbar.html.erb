@@ -31,7 +31,7 @@
           </li>
           <% if !current_user.admin? %>
             <li class="nav-item">
-              <%= link_to "My Listings", listing_path(current_user.id), class: "nav-link" %>
+              <%= link_to "All Listings", listings_path, class: "nav-link" %>
             </li>
           <li class="nav-item">
             <%= link_to "My Loans", loan_path(current_user.id), class: "nav-link" %>
@@ -40,9 +40,6 @@
             <%= link_to "My Profile", profile_path(current_user.id), class: "nav-link" %>
           </li>
             <% else %>
-            <li class="nav-item">
-              <%= link_to "All Listings", listings_path, class: "nav-link" %>
-            </li>
             <li class="nav-item">
               <%= link_to 'View all Profiles', profiles_path, class: "nav-link" %>
             </li>
