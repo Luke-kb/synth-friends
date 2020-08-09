@@ -1,7 +1,15 @@
+User.destroy_all
+Profile.destroy_all
+Category.destroy_all
+Brand.destroy_all
+# Listing.destroy_all
+# Loan.destroy_all
+# Rating.destroy_all
+
 User.create!([
-  {email: "bob@test.com", encrypted_password: "$2a$12$1X8Blpum1Norgx7v2HVXJOIfsLm2XnXCyfL1YKIQuopkoLrHM/AJS", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, admin: false},
-  {email: "jane@test.com", encrypted_password: "$2a$12$5N5hM7I2OEirstym9ggSFulWuJPLPapqcPxTSfN1HgNFDAMjnT2jG", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, admin: false},
-  {email: "admin@test.com", encrypted_password: "$2a$12$KmGWDGpm3B4CH4LGKNDG7ucM1k24c3SsH5kbvcGqIR4c1zLPq0eFa", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, admin: true}
+  {email: "bob@test.com", password: "password", password_confirmation: "password", admin: false},
+  {email: "jane@test.com", password: "password", password_confirmation: "password", admin: false},
+  {email: "admin@test.com", password: "adminpass", password_confirmation: "adminpass", admin: true}
 ])
 Category.create!([
   {name: "Keyboard Synth"},
