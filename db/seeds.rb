@@ -1,139 +1,46 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-require 'faker'
-require 'aws-sdk-s3'
-
-User.destroy_all
-Profile.destroy_all
-Category.destroy_all
-Brand.destroy_all
-# Listing.destroy_all
-# Loan.destroy_all
-# Rating.destroy_all
-
-puts "start loading data"
-
-@brands = [
-    'Arturia', 
-    'Moog', 
-    'Korg', 
-    'Elektron', 
-    'Dave Smith Instruments', 
-    'Yamaha', 
-    'Access', 
-    'Waldorf'
-]
-
-@categories = [
-    'Keyboard Synth', 
-    'Desktop Synth', 
-    'Effects', 
-    'Midi', 
-    'Modular', 
-    'Accessories'
-]
-
-@brands.each do |brand|
-    Brand.create!(name: brand)
-end
-
-@categories.each do |category|
-    Category.create!(name: category)
-end
-
-user1 = User.create!(
-    email: 'bob@test.com', 
-    password: 'password', 
-    password_confirmation: 'password', 
-    admin: false
-)
-
-user2 = User.create!(
-    email: 'jane@test.com', 
-    password: 'password', 
-    password_confirmation: 'password', 
-    admin: false
-)
-
-admin = User.create!(
-    email: 'admin@test.com', 
-    password: 'adminpass', 
-    password_confirmation: 'adminpass', 
-    admin: true
-)
-
-user1.create_profile!(
-    first_name: "Bob",
-    last_name: Faker::Name.last_name,
-    location: '2120',
-    bio: "bio",
-    # rating: rand(1..5),
-)
-    
-user2.create_profile!(
-    first_name: "Jane",
-    last_name: Faker::Name.last_name,
-    location: '4200',
-    bio: "bio"
-    ) 
-    
-admin.create_profile!(
-    first_name: "Admin", 
-    last_name: "Admin",
-    location: '2000',
-    bio: "bio"
-    )
-
-# user1.create_listing!(
-#     brand: @brands[0], 
-#     title: 'MatrixBrute', 
-#     category: 1, 
-#     description: "analog monosynth with digital control", 
-#     price: 30, 
-#     year_of_manufacture: 2016, 
-#     availabity: true
-# )
-
-# user2.create_listing!(
-#     brand: @brands[1],
-#     title: 'MiniMoog Voyager XL', 
-#     category: [0], 
-#     description: "famed analog monosynth", 
-#     price: 40, 
-#     year_of_manufacture: 2010, 
-#     availabity: true
-# )
-
-# loan1 = Loan.create!(listing_id: listing1.id, 
-#                     start_date: DateTime.strptime("08/07/2020 17:00", "%m/%d/%Y %H:%M"), 
-#                     end_date: DateTime.strptime("08/09/2020 17:00", "%m/%d/%Y %H:%M"), 
-#                     total_cost: (listing1.price*2))
-
-
-puts "finish loading data"
-
-# s3 = Aws::S3::Resource.new(region: 'ap-southeast-2')
-
-
-
-# 20.times do |i|
-#     item = Item.create!(
-    #                     title: Faker::Games::Pokemon.name,
-#                     description: Faker::Lorem.paragraph_by_chars(60, false),
-#                     price: 5.0)
-
-    # Create the object to retrieve
-    # obj = s3.bucket('my-bucket').object('#{i}.jpg')    # change this to your bucket name
-
-    # Get the item's content and save it to local
-    # obj.get(response_target: 'app/assets/images/chatons/#{i}.jpg')
-
-    # item.image.attach(io: File.open("app/assets/images/chatons/#{i}.jpg"), filename: "#{i}.jpg")
-
-
+User.create!([
+  {email: "bob@test.com", encrypted_password: "$2a$12$1X8Blpum1Norgx7v2HVXJOIfsLm2XnXCyfL1YKIQuopkoLrHM/AJS", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, admin: false},
+  {email: "jane@test.com", encrypted_password: "$2a$12$5N5hM7I2OEirstym9ggSFulWuJPLPapqcPxTSfN1HgNFDAMjnT2jG", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, admin: false},
+  {email: "admin@test.com", encrypted_password: "$2a$12$KmGWDGpm3B4CH4LGKNDG7ucM1k24c3SsH5kbvcGqIR4c1zLPq0eFa", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, admin: true}
+])
+Category.create!([
+  {name: "Keyboard Synth"},
+  {name: "Desktop Synth"},
+  {name: "Effects"},
+  {name: "Midi"},
+  {name: "Modular"},
+  {name: "Accessories"}
+])
+Profile.create!([
+  {first_name: "Admin", last_name: "Admin", location: "2000", user_id: 3, bio: "bio"},
+  {first_name: "Jane", last_name: "Medhurst", location: "4200", user_id: 2, bio: "bio"},
+  {first_name: "Bob", last_name: "Baumbach", location: "2120", user_id: 1, bio: "bio"}
+])
+Brand.create!([
+  {name: "Arturia"},
+  {name: "Moog"},
+  {name: "Korg"},
+  {name: "Elektron"},
+  {name: "Dave Smith Instruments"},
+  {name: "Yamaha"},
+  {name: "Access"},
+  {name: "Waldorf"}
+])
+Listing.create!([
+  {title: "MatrixBrute", description: "analog monosynth with digital control", price: "25.0", year_of_manufacture: 2016, lender_id: 2, renter_id: nil, profile_id: nil, availability: true, brand_id: 1, category_id: 1},
+  {title: "Minimoog Voyager XL", description: "famed analog monosynth", price: "35.0", year_of_manufacture: 2010, lender_id: 1, renter_id: nil, profile_id: nil, availability: true, brand_id: 2, category_id: 1}
+])
+ActiveStorage::Attachment.create!([
+  {name: "image", record_type: "Listing", record_id: 1, blob_id: 1},
+  {name: "image", record_type: "Listing", record_id: 2, blob_id: 3},
+  {name: "image", record_type: "Profile", record_id: 3, blob_id: 4},
+  {name: "image", record_type: "Profile", record_id: 2, blob_id: 5},
+  {name: "image", record_type: "Profile", record_id: 1, blob_id: 6}
+])
+ActiveStorage::Blob.create!([
+  {key: "ib792obp5kb7bp67p75ptpvv2re6", filename: "matrix-brute.jpg", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, byte_size: 101845, checksum: "VmT0jRFIsT+TeAcwSapNTw=="},
+  {key: "tg97in4q0zc9z4sjuyq6crczvpqr", filename: "MoogMinimoogVoyagerXL.jpg", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, byte_size: 254801, checksum: "EQGIPMKC3oerft2rgBfhFg=="},
+  {key: "04trbbffx23wdxx66fchqet9banc", filename: "blank.png", content_type: "image/png", metadata: {"identified"=>true, "analyzed"=>true}, byte_size: 10663, checksum: "H5X6VJTQB/KpVYTqIzI6Ew=="},
+  {key: "bisyq1h9itqig36xd3kalci7uyyu", filename: "dog.jpeg", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, byte_size: 190251, checksum: "vkj0x/3tT0JdSKBlXfZhBQ=="},
+  {key: "yhpztv8v0g3pvxituxqamj2twkef", filename: "Bob_the_builder.jpg", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, byte_size: 16413, checksum: "I6cpT+26QkfO2Tm1yBlCgg=="}
+])
