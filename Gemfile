@@ -32,7 +32,7 @@ gem 'devise'
 #styling
 gem 'bootstrap', '~> 4.5.0'
 gem 'jquery-rails'
-gem 'aws-sdk-s3'
+gem 'aws-sdk-s3', require: false
 gem 'cancancan'
 gem 'rails_12factor', group: :production
 gem 'faker'
