@@ -13,8 +13,8 @@ class Ability
       can :read, :all
     end
     if user.present?
-      can :update, Listing, :lender_id => user.id
-      can :update, Profile, :id => user.id
+      can :manage, Listing, :lender_id => user.id
+      can :manage, Profile, :id => user.id
     end
   end
 end

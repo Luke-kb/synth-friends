@@ -11,6 +11,8 @@
 
   <body>
 
+    <%= render 'shared/navbar' %>
+
     <% if notice %> 
     <div id="notice_wrapper">
       <p class="notice"><%= notice %></p> 
@@ -20,8 +22,6 @@
       <p class="alert"><%= alert %></p>
     </div>
     <% end %>
-
-    <%= render 'shared/navbar' %>
     
     <% if user_signed_in? %>
         <p id="current_user">Logged in as <strong><%= "#{current_user.email}"%></strong></p>
