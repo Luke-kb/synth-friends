@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  load_and_authorize_resource
+  # load_and_authorize_resource
   before_action :show_profile, only: [:show]
   before_action :set_profile, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
@@ -13,9 +13,8 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1
   # GET /profiles/1.json
-  def show 
-    authorize! :read, @profile
-  end
+  # def show
+  # end
 
   # GET /profiles/new
   def new
@@ -79,6 +78,7 @@ class ProfilesController < ApplicationController
     end
 
     def show_profile
+      # authorize! :read, @profile
       if !current_user.profile
         redirect_to new_profile_path
       else
