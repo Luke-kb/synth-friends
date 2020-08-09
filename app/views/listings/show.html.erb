@@ -44,8 +44,10 @@
     <%= render plain: "Not at the moment" %>
   <% end %>
 </p>
-
-<a href="<% new_loan_path %>%" class="btn btn-primary btn" role="button">Request to Loan</a><br>
+<%# show button if listing isn't currently being rented %>
+<% if @listing.renter_id == nil && @listing.lender_id != current_user.id %>
+  <a href="<% new_loan_path %>" class="btn btn-primary btn" role="button">Request to Loan</a><br>
+<% end %>
 
 <% if can? :update, @listing %><%= link_to 'Edit Listing', edit_listing_path(@listing)%> | <% end %> 
 <% if can? :read, @listing %><%= link_to 'View all Listings', listings_path %><% end %>
