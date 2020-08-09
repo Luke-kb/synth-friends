@@ -10,7 +10,7 @@ class Ability
     if user.admin?
       can :manage, :all
     else
-      can :read, Listing
+      can :read, :all
     end
     if user.present?
       can :update, Listing, :lender_id => user.id

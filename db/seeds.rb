@@ -63,8 +63,8 @@ user2 = User.create!(
 
 admin = User.create!(
     email: 'admin@test.com', 
-    password: 'adminpassword', 
-    password_confirmation: 'adminpassword', 
+    password: 'adminpass', 
+    password_confirmation: 'adminpass', 
     admin: true
 )
 
@@ -72,42 +72,43 @@ user1.create_profile!(
     first_name: "Bob",
     last_name: Faker::Name.last_name,
     location: '2120',
+    bio: "bio",
     # rating: rand(1..5),
 )
-                            
+    
 user2.create_profile!(
     first_name: "Jane",
     last_name: Faker::Name.last_name,
     location: '4200',
-    # rating: rand(1..5),
-) 
-                            
+    bio: "bio"
+    ) 
+    
 admin.create_profile!(
     first_name: "Admin", 
     last_name: "Admin",
     location: '2000',
-    # rating: rand(1..5),
-)
+    bio: "bio"
+    )
 
-user1.create_listing!(
-    brand: @brands[0], 
-    title: 'MatrixBrute', 
-    category: 1, 
-    description: "analog monosynth with digital control", 
-    price: 30, 
-    year_of_manufacture: 2016, 
-    availabity: true
-)
+# user1.create_listing!(
+#     brand: @brands[0], 
+#     title: 'MatrixBrute', 
+#     category: 1, 
+#     description: "analog monosynth with digital control", 
+#     price: 30, 
+#     year_of_manufacture: 2016, 
+#     availabity: true
+# )
 
-user2.create_listing!(
-    brand: @brands[1],
-    title: 'MiniMoog Voyager XL', 
-    category: [0], 
-    description: "famed analog monosynth", 
-    price: 40, 
-    year_of_manufacture: 2010, 
-    availabity: true
-)
+# user2.create_listing!(
+#     brand: @brands[1],
+#     title: 'MiniMoog Voyager XL', 
+#     category: [0], 
+#     description: "famed analog monosynth", 
+#     price: 40, 
+#     year_of_manufacture: 2010, 
+#     availabity: true
+# )
 
 # loan1 = Loan.create!(listing_id: listing1.id, 
 #                     start_date: DateTime.strptime("08/07/2020 17:00", "%m/%d/%Y %H:%M"), 
