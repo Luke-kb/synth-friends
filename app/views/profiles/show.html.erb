@@ -2,22 +2,22 @@
 <br>
 <p>
   <strong>First name:</strong>
-  <%= @profile.first_name %>
+  <%= sanitize @profile.first_name %>
 </p>
 
 <p>
   <strong>Last name:</strong>
-  <%= @profile.last_name %>
+  <%= sanitize @profile.last_name %>
 </p>
 
 <p>
-  <strong>Location:</strong>
-  <%= @profile.location %>
+  <strong>Postcode:</strong>
+  <%= sanitize @profile.location %>
 </p>
 
 <p>
   <strong>Bio:</strong>
-  <%= @profile.bio %>
+  <%= sanitize @profile.bio %>
 </p>
 
 <p>

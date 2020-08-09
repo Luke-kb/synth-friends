@@ -31,10 +31,10 @@
           </li>
           <% if !current_user.admin? %>
             <li class="nav-item">
-              <%= link_to "All Listings", listings_path, class: "nav-link" %>
+              <%= link_to "My Listings", user_listings_path(current_user.profile), class: "nav-link" %>
             </li>
           <li class="nav-item">
-            <%= link_to "My Loans", loan_path(current_user.id), class: "nav-link" %>
+            <%= link_to "My Loans", loans_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "My Profile", profile_path(current_user.id), class: "nav-link" %>
