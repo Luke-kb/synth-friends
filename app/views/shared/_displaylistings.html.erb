@@ -1,12 +1,19 @@
-<div class="listings">
+<div class="listings d-flex">
     <% if @listings.length > 0 %>
         <% @listings.each do |listing| %>
-            <div class="listing">
-                <p><%= image_tag(listing.image, width: 250) if listing.image.attached? %></p>
-                <p><%= %></p>
-                <p></p>
-                <p></p>
-
+            <div class="listing d-flex flex-column">
+                <p><%= image_tag(listing.image, width: 250, height: 250, class: "image") if listing.image.attached? %></p>
+                <p><%= link_to listing.title, listing_path(listing)%></p>
+                <p><%= number_to_currency(listing.price)%></p>
+                <% if listing.availability %>
+                    <p>Available</p>
+                <% end %>
+                <% if listing.lender_id %>
+                    <p><%= link_to 'Borrow This', new_loan_path(id: listing.id), class: "btn btn-primary"%></p>
+                <% end %>
             </div>
         <% end %>
+    <% else %>
+        <p>There are no listings available at the moment.</p>
+    <% end %>
 </div>

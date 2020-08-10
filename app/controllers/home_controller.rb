@@ -1,5 +1,8 @@
 class HomeController < ApplicationController
+  include Devise::Controllers::Helpers
   def page
+    @listings = Listing.all
+    @user = current_user
   end
 
   def not_found

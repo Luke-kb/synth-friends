@@ -1,3 +1,15 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+div.listing.d-flex.flex-column {
+    align-items: center;
+}
+
+.listings.d-flex.flex-row {
+
+}
+
+.image {
+    border: 2px inset red;
+}
