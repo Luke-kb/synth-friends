@@ -17,8 +17,11 @@
 
 <p>
   <strong>Total cost:</strong>
-  <%= @loan.total_cost %>
+  <%= number_to_currency(@loan.total_cost) %>
 </p>
+
+<p><i>loaned <%= time_ago_in_words(@loan.created_at) %> ago from <%= link_to "#{@lender.first_name}", profile_path(@lender) %></i></p>
+
 
 <%= link_to 'Edit', edit_loan_path(@loan) %> |
 <%= link_to 'Back', loans_path %>

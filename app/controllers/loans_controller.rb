@@ -11,9 +11,7 @@ class LoansController < ApplicationController
   # GET /loans/1
   # GET /loans/1.json
   def show
-  end
-
-  def total_cost
+    @lender = Profile.find(Listing.find(@loan.listing_id).lender_id)
   end
 
   # GET /loans/new
@@ -37,7 +35,6 @@ class LoansController < ApplicationController
   def create
     @loan = Loan.new(loan_params)
     @listing.renter_id = current_user.id
-    # @loan.total_cost = @total_cost
 
     respond_to do |format|
       if @loan.save
@@ -56,7 +53,6 @@ class LoansController < ApplicationController
     @loan = Loan.new(loan_params)
     @listing = Listing.find(@loan.listing_id)
     @listing.renter_id = current_user.id
-    # @loan.total_cost = @total_cost
 
     respond_to do |format|
       if @loan.update(loan_params)

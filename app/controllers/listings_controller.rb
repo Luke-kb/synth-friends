@@ -19,6 +19,7 @@ class ListingsController < ApplicationController
   # GET /listings/1.json
   def show
     # authorize! :read, @listing
+    @lender = Profile.find(@listing.lender_id).first_name
   end
 
   # GET /listings/new
