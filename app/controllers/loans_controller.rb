@@ -13,6 +13,9 @@ class LoansController < ApplicationController
   def show
   end
 
+  def total_cost
+  end
+
   # GET /loans/new
   def new
     @listing = Listing.find(params[:id])
@@ -23,13 +26,18 @@ class LoansController < ApplicationController
 
   # GET /loans/1/edit
   def edit
+    @loan = Loan.find(params[:id])
+    @listing = Listing.find(@loan.listing_id)
+    @brand = Brand.find(@listing.brand_id)
+    @category = Category.find(@listing.category_id)
   end
 
   # POST /loans
   # POST /loans.json
   def create
     @loan = Loan.new(loan_params)
-    
+    @listing.renter_id = current_user.id
+    # @loan.total_cost = @total_cost
 
     respond_to do |format|
       if @loan.save
@@ -45,6 +53,11 @@ class LoansController < ApplicationController
   # PATCH/PUT /loans/1
   # PATCH/PUT /loans/1.json
   def update
+    @loan = Loan.new(loan_params)
+    @listing = Listing.find(@loan.listing_id)
+    @listing.renter_id = current_user.id
+    # @loan.total_cost = @total_cost
+
     respond_to do |format|
       if @loan.update(loan_params)
         format.html { redirect_to @loan, notice: 'Loan was successfully updated.' }
@@ -74,6 +87,6 @@ class LoansController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def loan_params
-      params.require(:loan).permit(:listing_id, :start_date, :end_date, :total_cost)
+      params.require(:loan).permit(:listing_id, :start_date, :end_date, :total_cost, :listing_id)
     end
 end

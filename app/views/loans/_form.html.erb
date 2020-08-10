@@ -13,7 +13,7 @@
 
   <%= image_tag listing.image, width: 250 if listing.image.attached? %>
 
-  <%# hidden field so that form can access values %>
+  <%# hidden field so that form can access params %>
   <div class="field">
     <%= form.hidden_field :listing_id, :value => listing.id %>
     <%= form.hidden_field :brand_id, :value => brand.id %>
@@ -66,5 +66,5 @@
 <% end %>
 
 <script>
-  
+
 </script>
