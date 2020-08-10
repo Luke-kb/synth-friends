@@ -3,5 +3,4 @@ class Loan < ApplicationRecord
   has_one :lender, class_name: "Profile"
   has_one :renter, class_name: "Profile"
   
-
 end

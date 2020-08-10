@@ -46,7 +46,7 @@
 </p>
 <%# show button if listing isn't currently being rented %>
 <% if @listing.renter_id == nil && @listing.lender_id != current_user.id %>
-  <a href="<% new_loan_path %>" class="btn btn-primary btn" role="button">Request to Loan</a><br>
+  <%= link_to "Request to Loan", new_loan_path, class: "btn btn-primary btn" %>
 <% end %>
 
 <% if can? :update, @listing %><%= link_to 'Edit Listing', edit_listing_path(@listing)%> | <% end %> 

@@ -1,5 +1,5 @@
 class LoansController < ApplicationController
-  load_and_authorize_resource
+  # load_and_authorize_resource
   before_action :set_loan, only: [:show, :edit, :update, :destroy]
 
   # GET /loans
@@ -26,6 +26,7 @@ class LoansController < ApplicationController
   # POST /loans.json
   def create
     @loan = Loan.new(loan_params)
+    
 
     respond_to do |format|
       if @loan.save
