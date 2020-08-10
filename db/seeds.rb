@@ -34,10 +34,11 @@ Brand.create!([
   {name: "Access"},
   {name: "Waldorf"}
 ])
-Listing.create!([
-  {title: "MatrixBrute", description: "analog monosynth with digital control", price: "25.0", year_of_manufacture: 2016, lender_id: 2, renter_id: nil, profile_id: nil, availability: true, brand_id: 1, category_id: 1},
-  {title: "Minimoog Voyager XL", description: "famed analog monosynth", price: "35.0", year_of_manufacture: 2010, lender_id: 1, renter_id: nil, profile_id: nil, availability: true, brand_id: 2, category_id: 1}
-])
+
+# Listing.create!([
+#   {title: "MatrixBrute", description: "analog monosynth with digital control", price: "25.0", year_of_manufacture: 2016, lender_id: 2, renter_id: nil, profile_id: nil, availability: true, brand_id: 1, category_id: 1},
+#   {title: "Minimoog Voyager XL", description: "famed analog monosynth", price: "35.0", year_of_manufacture: 2010, lender_id: 1, renter_id: nil, profile_id: nil, availability: true, brand_id: 2, category_id: 1}
+# ])
 # ActiveStorage::Attachment.create!([
 #   {name: "image", record_type: "Listing", record_id: 1, blob_id: 1},
 #   {name: "image", record_type: "Listing", record_id: 2, blob_id: 3},
