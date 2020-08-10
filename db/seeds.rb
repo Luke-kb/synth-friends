@@ -1,8 +1,8 @@
-User.destroy_all
-Profile.destroy_all
-Category.destroy_all
-Brand.destroy_all
-Listing.destroy_all
+# User.destroy_all
+# Profile.destroy_all
+# Category.destroy_all
+# Brand.destroy_all
+# Listing.destroy_all
 # Loan.destroy_all
 # Rating.destroy_all
 
