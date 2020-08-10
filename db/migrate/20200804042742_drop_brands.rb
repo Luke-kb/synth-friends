@@ -1,10 +1,12 @@
 class DropBrands < ActiveRecord::Migration[6.0]
-  def up
-    drop_table :categories
-    drop_table :brands
-  end
-  
-  def down
-    fail ActiveRecord::IrreversibleMigration
+  def change
+    drop_table :brands do |t|
+      t.string :name
+      t.timestamps 
+    end
+    drop_table :categories do |t|
+      t.string :name
+      t.timestamps
+    end
   end
 end
