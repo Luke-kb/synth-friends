@@ -37,7 +37,7 @@
   
   <div class="field">
     <%= form.label "Description" %>
-    <%= form.text_area :title, :value => listing.description, :readonly => true %>
+    <%= form.text_area :description, :value => listing.description, :readonly => true %>
   </div>
   
   <div class="field">
@@ -51,6 +51,11 @@
   </div>
 
   <div class="field">
+    <%= form.label "Price per day: $" %>
+    <%= form.text_field :price, :value => listing.price %>
+  </div>
+  
+  <div class="field">
     <%= form.label :total_cost %>
     <%= form.text_field :total_cost %>
   </div>
@@ -59,3 +64,7 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+<script>
+  
+</script>
