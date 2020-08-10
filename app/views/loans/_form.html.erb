@@ -11,19 +11,43 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :listing_id %>
-    <%= form.text_field :listing_id %>
-  </div>
+  <%= image_tag listing.image, width: 250 if listing.image.attached? %>
 
+  <%# hidden field so that form can access values %>
+  <div class="field">
+    <%= form.hidden_field :listing_id, :value => listing.id %>
+    <%= form.hidden_field :brand_id, :value => brand.id %>
+    <%= form.hidden_field :category_id, :value => category.id %>
+  </div>
+  
+  <div class="field">
+    <%= form.label "Brand" %>
+    <%= form.text_field :brand, :value => brand.name, :readonly => true %>
+  </div>
+  
+  <div class="field">
+    <%= form.label "Title" %>
+    <%= form.text_field :title, :value => listing.title, :readonly => true %>
+  </div>
+  
+  <div class="field">
+    <%= form.label "Category" %>
+    <%= form.text_field :category, :value => category.name, :readonly => true %>
+  </div>
+  
+  <div class="field">
+    <%= form.label "Description" %>
+    <%= form.text_area :title, :value => listing.description, :readonly => true %>
+  </div>
+  
   <div class="field">
     <%= form.label :start_date %>
-    <%= form.datetime_select :start_date %>
+    <%= form.date_select :start_date %>
   </div>
 
   <div class="field">
     <%= form.label :end_date %>
-    <%= form.datetime_select :end_date %>
+    <%= form.date_select :end_date %>
   </div>
 
   <div class="field">

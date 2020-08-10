@@ -4,7 +4,6 @@
 
 <p><i>listed <%= time_ago_in_words(@listing.created_at) %> ago by <%= link_to "#{Profile.find(@listing.lender_id).first_name}", profile_path(@listing.lender_id) %></i></p>
 
-
 <p>
   <strong>Brand:</strong>
   <%= Brand.find(@listing.brand_id).name %>
@@ -46,7 +45,7 @@
 </p>
 <%# show button if listing isn't currently being rented %>
 <% if @listing.renter_id == nil && @listing.lender_id != current_user.id %>
-  <%= link_to "Request to Loan", new_loan_path, class: "btn btn-primary btn" %>
+  <%= link_to "Request to Loan", new_loan_path(:id => @listing.id), class: "btn btn-primary btn" %>
 <% end %>
 
 <% if can? :update, @listing %><%= link_to 'Edit Listing', edit_listing_path(@listing)%> | <% end %> 

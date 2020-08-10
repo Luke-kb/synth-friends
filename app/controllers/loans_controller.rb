@@ -15,7 +15,11 @@ class LoansController < ApplicationController
 
   # GET /loans/new
   def new
+    @listing = Listing.find(params[:id])
+    @brand = Brand.find(Listing.find(params[:id]).brand_id)
+    @category = Category.find(Listing.find(params[:id]).category_id)
     @loan = Loan.new
+
   end
 
   # GET /loans/1/edit
