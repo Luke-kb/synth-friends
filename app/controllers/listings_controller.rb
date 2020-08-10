@@ -9,7 +9,7 @@ class ListingsController < ApplicationController
   end
 
   def user_listings
-    @listings = Listing.find(listing.lender_id == current_user.id)
+    @listings = Listing.where lender_id: current_user.id
   end
 
   def search

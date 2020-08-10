@@ -20,20 +20,23 @@
 
   <tbody>
     <% @listings.each do |listing| %>
+    <% if can? :manage, listing %>
         <tr>
-        <td><%= image_tag(listing.image, width: 200) if listing.image.attached? %></td>
-        <td><%= Category.find(listing.category_id).name %></td> 
-        <td><%= Brand.find(listing.brand_id).name %></td>  
-        <td><%= listing.title %></td>
-        <td><%= listing.description %></td>
-        <td><%= number_to_currency(listing.price) %></td>
-        <td><%= listing.year_of_manufacture %></td>
-        <% if listing.availability %>
-          <td><%= render plain: "Yes" %></td>
-        <% else %>
-          <td><%= render plain: "No" %></td>
+          <td><%= image_tag(listing.image, width: 200) if listing.image.attached? %></td>
+          <td><%= Category.find(listing.category_id).name %></td> 
+          <td><%= Brand.find(listing.brand_id).name %></td>  
+          <td><%= listing.title %></td>
+          <td><%= listing.description %></td>
+          <td><%= number_to_currency(listing.price) %></td>
+          <td><%= listing.year_of_manufacture %></td>
+          <% if listing.availability %>
+            <td><%= render plain: "Yes" %></td>
+          <% else %>
+            <td><%= render plain: "No" %></td>
+          <% end %>
+          <td><%= Profile.find(listing.lender_id).first_name %></td>
         <% end %>
-        <td><%= Profile.find(listing.lender_id).first_name %></td>
+
           <td><%= link_to 'Show', listing %></td>
         <%if can? :update, listing %>
           <td> |<%= link_to 'Edit', edit_listing_path(listing)%></td>
