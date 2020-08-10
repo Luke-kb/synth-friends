@@ -1,0 +1,12 @@
+<div class="listings">
+    <% if @listings.length > 0 %>
+        <% @listings.each do |listing| %>
+            <div class="listing">
+                <p><%= image_tag(listing.image, width: 250) if listing.image.attached? %></p>
+                <p><%= %></p>
+                <p></p>
+                <p></p>
+
+            </div>
+        <% end %>
+</div>
