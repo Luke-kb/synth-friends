@@ -30,15 +30,19 @@
             <%= link_to "+ Add a listing", new_listing_path(current_user.id), class: "nav-link" %>
           </li>
           <% if !current_user.admin? %>
+            <% if current_user.id %>
             <li class="nav-item">
-              <%= link_to "My Listings", user_listings_path(current_user.profile.id), class: "nav-link" %>
+              <%= link_to "My Listings", user_listings_path(current_user.id), class: "nav-link" %>
             </li>
+            <% end %>
           <li class="nav-item">
             <%= link_to "My Loans", loans_path, class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "My Profile", profile_path(current_user.profile.id), class: "nav-link" %>
-          </li>
+          <% if current_user && Profile.exists?(user_id: current_user.id) %>
+            <li class="nav-item">
+              <%= link_to "My Profile", profile_path(Profile.find_by user_id: current_user.id), class: "nav-link" %>
+            </li>
+          <% end %>
             <% else %>
             <li class="nav-item">
               <%= link_to 'View all Profiles', profiles_path, class: "nav-link" %>

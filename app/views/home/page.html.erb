@@ -1,3 +1,7 @@
+<% if current_user && !Profile.exists?(user_id: current_user.id) %>
+    <% controller.redirect_to new_profile_path %>
+<% end %>
+
 <div class="container">
     <div class="jumbotron text-center">
         <h1 class="display-4">Welcome to Synth Friends!</h1>
