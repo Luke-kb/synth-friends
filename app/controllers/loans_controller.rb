@@ -11,6 +11,7 @@ class LoansController < ApplicationController
   # GET /loans/1
   # GET /loans/1.json
   def show
+    # find loans relevant to current users owned listings
     @lender = Profile.find(Listing.find(@loan.listing_id).lender_id)
   end
 
@@ -34,7 +35,7 @@ class LoansController < ApplicationController
   # POST /loans.json
   def create
     @loan = Loan.new(loan_params)
-    @listing.renter_id = current_user.id
+    # @listing.renter_id = current_user.id
 
     respond_to do |format|
       if @loan.save

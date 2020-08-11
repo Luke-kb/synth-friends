@@ -9,6 +9,7 @@ class ListingsController < ApplicationController
   end
 
   def user_listings
+    #find listings owned by current user
     @listings = Listing.where lender_id: current_user.id
   end
 
@@ -18,7 +19,7 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
-    # authorize! :read, @listing
+    #find lenedr information for easy display in show listing view
     @lender = Profile.find(@listing.lender_id).first_name
   end
 
