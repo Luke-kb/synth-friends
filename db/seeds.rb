@@ -6,13 +6,13 @@
 # Loan.destroy_all
 # Rating.destroy_all
 
-User.create!(email: "bob@test.com", password: "password", password_confirmation: "password", admin: false)
-User.create!(email: "jane@test.com", password: "password", password_confirmation: "password", admin: false)
-User.create!(email: "admin@test.com", password: "adminpass", password_confirmation: "adminpass", admin: true)  
+# User.create!(email: "bob@test.com", password: "password", password_confirmation: "password", admin: false)
+# User.create!(email: "jane@test.com", password: "password", password_confirmation: "password", admin: false)
+# User.create!(email: "admin@test.com", password: "adminpass", password_confirmation: "adminpass", admin: true)  
 
-Profile.create!(first_name: "Bob", last_name: "Baumbach", location: "2120", user_id: 1, bio: "bio")
-Profile.create!(first_name: "Jane", last_name: "Medhurst", location: "4200", user_id: 2, bio: "bio")
-Profile.create!(first_name: "Admin", last_name: "Admin", location: "2000", user_id: 3, bio: "bio")
+Profile.create!(first_name: "Bob", last_name: "Baumbach", location: "2120", user_id: 2, bio: "bio")
+Profile.create!(first_name: "Jane", last_name: "Medhurst", location: "4200", user_id: 3, bio: "bio")
+Profile.create!(first_name: "Admin", last_name: "Admin", location: "2000", user_id: 4, bio: "bio")
 
 Category.create!([
   {name: "Keyboard Synth"},
