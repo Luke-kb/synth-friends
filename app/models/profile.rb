@@ -5,5 +5,5 @@ class Profile < ApplicationRecord
   #self join setup
   has_many :listings_to_lend, class_name: "Listing", foreign_key: "lender_id"
   has_many :listings_to_rent, class_name: "Listing", foreign_key: "renter_id"
-
+  validates :location, length: {maximum: 4, minimum: 4}
 end
