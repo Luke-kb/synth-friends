@@ -1,9 +1,18 @@
 <p id="notice"><%= notice %></p>
 
+<%= image_tag(Listing.find(@loan.listing_id).image, width: 250) if Listing.find(@loan.listing_id).image.attached? %>
+
 <p>
   <strong>Listing:</strong>
-  <%= @loan.listing_id %>
+  <%= Brand.find(Listing.find(@loan.listing_id).brand_id).name %>
+  <%= Listing.find(@loan.listing_id).title %>
 </p>
+  
+<p>
+  <strong>Description:</strong>
+  <%= Listing.find(@loan.listing_id).description %>
+<p>
+
 
 <p>
   <strong>Start date:</strong>

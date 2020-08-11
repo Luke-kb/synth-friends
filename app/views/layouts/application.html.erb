@@ -9,9 +9,9 @@
   </head>
 
   <body>
-
+  <%# navbar on every page %>
     <%= render 'shared/navbar' %>
-
+  <%# only show notice and alert if there is one, hide otherwiser %>
     <% if notice %> 
     <div id="notice_wrapper">
       <p class="notice"><%= notice %></p> 
@@ -21,14 +21,15 @@
       <p class="alert"><%= alert %></p>
     </div>
     <% end %>
-    
+    <%# if user is signed in, welcome them %>
     <% if user_signed_in? %>
         <p id="current_user">Logged in as <strong><%= "#{current_user.email}"%></strong></p>
     <% end %>
-    
+    <%# wrap main page content inside bootstrap 'container' %>
     <div class="container" id="main">
       <%= yield %>
     </div>
+    <%# show footer on every page %>
       <%= render 'shared/footer' %>   
   </body>
 </html>

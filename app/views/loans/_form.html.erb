@@ -12,7 +12,11 @@
   <% end %>
 
   <%= image_tag listing.image, width: 250 if listing.image.attached? %>
-
+  <br>
+  <br>
+  <p>Select the Start Date and End Date.</p>
+  <p>The Total cost will be calculated automatically.</p>
+  <br>
   <%# hidden field so that form can access params %>
   <div class="field">
     <%= form.hidden_field :listing_id, :value => listing.id %>
@@ -55,10 +59,10 @@
     <%= form.text_field :price, :value => listing.price %>
   </div>
   
-  <div class="field">
-    <%= form.label :total_cost %>
-    <%= form.text_field :total_cost %>
-  </div>
+  <%# <div class="field"> %>
+    <%# <%= form.label :total_cost %>
+    <%# <%= form.text_field :total_cost %>
+  <%# </div> %>
 
   <div class="actions">
     <%= form.submit %>
