@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     end
 
     def after_sign_in_path_for(resource_or_scope)
-        profile_path(current_user) 
+        profile_path(Profile.find_by user_id: current_user.id) 
     end
 
 end
