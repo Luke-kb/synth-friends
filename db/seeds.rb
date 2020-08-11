@@ -2,12 +2,12 @@
 # Profile.destroy_all
 # Category.destroy_all
 # Brand.destroy_all
-# Listing.destroy_all
+# Listing.destBrand.allroy_all
 # Loan.destroy_all
 # Rating.destroy_all
 
 User.create!(email: "bob@test.com", password: "password", password_confirmation: "password", admin: false)
-User.create!(email: "bob@test.com", password: "password", password_confirmation: "password", admin: false)
+User.create!(email: "jane@test.com", password: "password", password_confirmation: "password", admin: false)
 User.create!(email: "admin@test.com", password: "adminpass", password_confirmation: "adminpass", admin: true)  
 
 Profile.create!(first_name: "Bob", last_name: "Baumbach", location: "2120", user_id: 1, bio: "bio")
