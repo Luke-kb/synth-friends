@@ -4,10 +4,12 @@
 
 <div class="container">
     <div class="jumbotron text-center">
-        <h1 class="display-4">Welcome to Synth Friends!</h1>
+        <h1 class="display-3">Welcome to Borrows</h1>
         <p class="lead">A Lending and Renting Marketplace for Synth and Audio gear</p>
-        <hr class="my-4">
-        <a class="btn btn-primary btn-lg" href="<%= listings_path %>" role="button">Browse Listings</a>
+        <br>
+        <%# <hr class="my-4"> %>
+        <a class="btn btn-primary btn-lg" href="<%= listings_path%>" role="button">Browse All Listings</a>
     </div>
+
     <%= render 'shared/displaylistings' %>
 </div>
