@@ -187,7 +187,7 @@ As a User with a Profile, one would now want to create a listing as a lender, or
 
 Task management tool `Trello` is utilised to keep track of required tasks throughout the course of the development phase. Tasks were coloured as Red (critical), Orange (medium) and Green (optional) and assigned due dates. Once completed, tasks are moved into the Completed card.
 
-![trello](/home/lkbt480s/Insync/keananbrown@gmail.com/Google Drive/Dev/Dev/Term_2/T2A2 Marketplace/LukeKeanan-Brown_T2A2/docs/trello.png)
+![trello](/docs/trello.png)
 
 ### Screenshots
 
